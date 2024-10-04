@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 export function List() {
   let [List, setList] = useState([]);
@@ -13,13 +13,15 @@ export function List() {
     getData();
   }, [])
 
-  const {state} =useLocation();
-     console.log(state);
+  
   
  const Delete=(id)=>{
     axios.delete("http://localhost:3000/products/"+id).then((res)=>{
-        getData(res.data);
+        getData(res.value);
     })
+ }
+ const Edit =(id)=>{
+   alert(id);
  }
   return (
     <>
@@ -47,7 +49,7 @@ export function List() {
             <td>{item.price}</td>
             <td>{item.stock}</td>
             <td><button onClick={()=>Delete(item.id)}>Delete</button></td>
-            <td><button>Edit</button></td>
+            <td><Link to={"/home/edit/"+item.id}><button>Edit</button></Link></td>
           </tr>
         )
         )}

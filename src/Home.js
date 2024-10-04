@@ -10,6 +10,7 @@ export function Home(){
         <h2> | <Link to="/home">Home</Link> |
          <Link to="/add">Add</Link> |
          <Link to = "/list">List</Link> |
+        
         </h2>
       
         <hr/>

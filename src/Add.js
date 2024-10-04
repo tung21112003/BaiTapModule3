@@ -1,6 +1,7 @@
 import { Field, Formik, Form } from "formik"
-import { useNavigate } from "react-router-dom"
+import { useNavigate  } from "react-router-dom"
 import axios from "axios";
+
 export function Add(){
     const navigate = useNavigate();
     const  Add = (value)=>{
@@ -18,14 +19,16 @@ export function Add(){
            prict:'',
            stock: '',
          }}
-         onSubmit={Add}
+         onSubmit={(value)=>{
+           Add(value);
+         }}
        >
         <Form>
-            <Field name="name"  type ="text" placeholder= "Name"/>
-            <Field name="description"  type ="text" placeholder= "Description"/>
-            <Field name="img"  type ="text" placeholder= "Img"/>
-            <Field name="price"  type ="text" placeholder= "Price"/>
-            <Field name="stock" type= "text" placeholder="Stock"/>
+            <Field name="name"  type ="text" placeholder= "Name"></Field>
+            <Field name="description"  type ="text" placeholder= "Description"></Field>
+            <Field name="img"  type ="text" placeholder= "Img"></Field>
+            <Field name="price"  type ="text" placeholder= "Price"></Field>
+            <Field name="stock" type= "text" placeholder="Stock"></Field>
            <button type="submit">Add</button>
         </Form>
        </Formik>
